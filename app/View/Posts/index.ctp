@@ -1,5 +1,18 @@
 <h2>記事一覧</h2>
 
+<?php echo $this->Html->css('common'); ?>
+
+<div id="hoge">aaaaaaaaaaaaaaaaaaaaa</div>
+<script type="text/javascript" href="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+	$('#hoge').click(function(){
+		console.log("hureta");
+	})
+</script>
+
+
+
 <ul>
 <?php foreach($posts as $post) : ?>
 

@@ -329,6 +329,7 @@ class View extends Object {
 			// controllerのインスタンスの参照を引数で受け取って、ぐるぐる回してviewにコピー
 			// ここでhelpersもコピー中
 			$count = count($this->_passedVars);
+			// debug("--------[check core View construct]--------");
 			for ($j = 0; $j < $count; $j++) {
 				$var = $this->_passedVars[$j];
 				$this->{$var} = $controller->{$var};
@@ -457,21 +458,32 @@ class View extends Object {
  * @throws CakeException If there is an error in the view.
  */
 	public function render($view = null, $layout = null) {
+		// 鎌達リングダリング済み判定
 		if ($this->hasRendered) {
 			return;
 		}
 		$this->Blocks->set('content', '');
 
+		/*
+			以下はリクエストのあったtplファイルをレンダリング
+		*/
 		if ($view !== false && $viewFileName = $this->_getViewFileName($view)) {
 			$this->_currentType = self::TYPE_VIEW;
+			// コールバック先で拒否られる
 			$this->getEventManager()->dispatch(new CakeEvent('View.beforeRender', $this, array($viewFileName)));
 			$this->Blocks->set('content', $this->_render($viewFileName));
+			// debug("[CakeView] template = ".$viewFileName);
+			// コールバック先で拒否られる
 			$this->getEventManager()->dispatch(new CakeEvent('View.afterRender', $this, array($viewFileName)));
 		}
 
+		/*
+			以下はレイアウト用のtplファイルをレンダリング
+		*/
 		if ($layout === null) {
 			$layout = $this->layout;
 		}
+
 		if ($layout && $this->autoLayout) {
 			$this->Blocks->set('content', $this->renderLayout('', $layout));
 		}
@@ -504,6 +516,7 @@ class View extends Object {
  */
 	public function renderLayout($content, $layout = null) {
 		$layoutFileName = $this->_getLayoutFileName($layout);
+
 		if (empty($layoutFileName)) {
 			return $this->Blocks->get('content');
 		}
@@ -514,10 +527,8 @@ class View extends Object {
 			$this->Blocks->set('content', $content);
 		}
 		$this->getEventManager()->dispatch(new CakeEvent('View.beforeLayout', $this, array($layoutFileName)));
-
 		$scripts = implode("\n\t", $this->_scripts);
 		$scripts .= $this->Blocks->get('meta') . $this->Blocks->get('css') . $this->Blocks->get('script');
-
 		$this->viewVars = array_merge($this->viewVars, array(
 			'content_for_layout' => $content,
 			'scripts_for_layout' => $scripts,
@@ -965,18 +976,27 @@ class View extends Object {
 	protected function _getViewFileName($name = null) {
 		$subDir = null;
 
+		// smartyViewをコンストラクトしたときにsubdirプロパティに値セットしてる
 		if ($this->subDir !== null) {
 			$subDir = $this->subDir . DS;
 		}
 
 		if ($name === null) {
 			$name = $this->view;
+			// debug("---------view of Core View Class--------");
+			// debug($name);
 		}
+
 		$name = str_replace('/', DS, $name);
 		list($plugin, $name) = $this->pluginSplit($name);
 
 		if (strpos($name, DS) === false && $name[0] !== '.') {
+			// $this->viewPath は Controllerをコンストラクトしたとき
+			//　に設定される
 			$name = $this->viewPath . DS . $subDir . Inflector::underscore($name);
+			// debug("---------make_name--------");
+			// debug("[CakeView _getViewFileName] template = ".$name);
+
 		} elseif (strpos($name, DS) !== false) {
 			if ($name[0] === DS || $name[1] === ':') {
 				if (is_file($name)) {
@@ -988,11 +1008,22 @@ class View extends Object {
 			} elseif (!$plugin || $this->viewPath !== $this->name) {
 				$name = $this->viewPath . DS . $subDir . $name;
 			}
-		}
+		}		
 		$paths = $this->_paths($plugin);
+
+		// debug("[CakeView _getViewFileName] path list ");
+		// debug($paths);
+
 		$exts = $this->_getExtensions();
+
+		// debug("[CakeView _getViewFileName] ext list");
+		// debug($exts);
+
+		// debug("----------------require_tpl_name----------------------");
+
 		foreach ($exts as $ext) {
 			foreach ($paths as $path) {
+				// debug($path . $name . $ext);
 				if (file_exists($path . $name . $ext)) {
 					return $path . $name . $ext;
 				}

@@ -20,11 +20,11 @@ class CreateAccountShell extends AppShell{
 
 		if(is_null($id))
 		{
-			$message .= "IDを入力してください¥n";
+			$message .= "IDを入力してください(id=hogehoge)\n";
 		}
 		if(is_null($password))
 		{
-			$message .= "パスワードを入力してください¥n";
+			$message .= "パスワードを入力してください(pass=fugafuga)\n";
 		}
 
 		if(!is_null($message))

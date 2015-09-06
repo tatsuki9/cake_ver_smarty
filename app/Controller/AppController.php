@@ -31,6 +31,48 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	public $viewClass = 'SmartyView.Smarty';
+	// public $viewClass = 'SmartyView.Smarty';
 
+	// フォーム入力取得(GET or POST)
+	protected function get_posted_params($key,$default=NULL)
+	{
+		// GET値取得
+		if(isset($this->request->query[$key]))
+		{
+			if(is_string($this->request->query[$key]) && $this->request->query[$key]==="")
+			{
+				return $default;
+			}
+
+			return $this->request->query[$key];
+		}
+		// POST値取得
+		if(isset($this->request->data[$key]))
+		{
+			if(is_string($this->request->data[$key]) && $this->request->data[$key]==="")
+			{
+				return $default;
+			}
+
+			return $this->request->data[$key];
+		}
+
+		return $default;
+	}
+
+	// 実行フラグチェック
+	public function is_execute_mode()
+	{
+		if(isset($this->request->query['exec']))
+		{
+			return $this->request->query['exec']=='1';
+		}
+		// POST値取得
+		if(isset($this->request->data['exec']))
+		{
+			return $this->request->data['exec']=='1';
+		}
+
+		return NULL;		
+	}
 }

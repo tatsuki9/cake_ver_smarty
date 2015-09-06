@@ -93,7 +93,9 @@ abstract class ObjectCollection {
  * @throws CakeException when modParams is used with an index that does not exist.
  */
 	public function trigger($callback, $params = array(), $options = array()) {
+		// debug("[ObjectCollection] trigger");
 		if (empty($this->_enabled)) {
+			// debug("[ObjectCollection] not enable");
 			return true;
 		}
 		if ($callback instanceof CakeEvent) {

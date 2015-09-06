@@ -126,18 +126,35 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
      */
     public function __construct($template_resource, $smarty, $_parent = null, $_cache_id = null, $_compile_id = null, $_caching = null, $_cache_lifetime = null)
     {
+        // debug("[Smarty_Internal_Template] construct start");
         $this->smarty = & $smarty;
+
         // Smarty parameter
         $this->cache_id = $_cache_id === null ? $this->smarty->cache_id : $_cache_id;
+
         $this->compile_id = $_compile_id === null ? $this->smarty->compile_id : $_compile_id;
+
         $this->caching = $_caching === null ? $this->smarty->caching : $_caching;
+
+        // debug("[Smarty_Internal_Template] cache_id = ".$this->cache_id);
+        // debug("[Smarty_Internal_Template] compile_id = ".$this->compile_id);
+        // debug("[Smarty_Internal_Template] caching = ".$this->caching);
+
+
         if ($this->caching === true) {
             $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
         }
         $this->cache_lifetime = $_cache_lifetime === null ? $this->smarty->cache_lifetime : $_cache_lifetime;
         $this->parent = $_parent;
         // Template resource
+        // $template = /Applications/MAMP/htdocs/repos/app/View/Homes/index.tpl'
+
         $this->template_resource = $template_resource;
+
+        // debug("[Smarty_Internal_Template] template_resource = ".$this->template_resource);
+        // debug("[Smarty_Internal_Template] parent below ");
+        // debug($this->parent);
+
         // copy block data of template inheritance
         if ($this->parent instanceof Smarty_Internal_Template) {
             $this->block_data = $this->parent->block_data;
@@ -210,6 +227,10 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
             if ($_filepath === false) {
                 throw new SmartyException('getCompiledFilepath() did not return a destination to save the compiled template to');
             }
+
+            // debug("Write_File");
+            // debug($_filepath);
+
             Smarty_Internal_Write_File::writeFile($_filepath, $code, $this->smarty);
             $this->compiled->exists = true;
             $this->compiled->isCompiled = true;

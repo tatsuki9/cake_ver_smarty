@@ -138,7 +138,6 @@ class Dispatcher implements CakeEventListener {
 	public function dispatch(CakeRequest $request, CakeResponse $response, $additionalParams = array()) {
 		$beforeEvent = new CakeEvent('Dispatcher.beforeDispatch', $this, compact('request', 'response', 'additionalParams'));
 		$this->getEventManager()->dispatch($beforeEvent);
-
 		$request = $beforeEvent->data['request'];
 		if ($beforeEvent->result instanceof CakeResponse) {
 			if (isset($request->params['return'])) {
@@ -148,8 +147,10 @@ class Dispatcher implements CakeEventListener {
 			return;
 		}
 
+		// 派生クラスのインスタンスを取得
 		$controller = $this->_getController($request, $response);
 
+		// $controllerがControllerクラスを継承したクラスのオブジェクトかどうか
 		if (!($controller instanceof Controller)) {
 			throw new MissingControllerException(array(
 				'class' => Inflector::camelize($request->params['controller']) . 'Controller',
@@ -189,6 +190,8 @@ class Dispatcher implements CakeEventListener {
 		}
 
 		if ($render && $controller->autoRender) {
+
+			// コントローラレンダリング
 			$response = $controller->render();
 		} elseif (!($result instanceof CakeResponse) && $response->body() === null) {
 			$response->body($result);
@@ -224,6 +227,7 @@ class Dispatcher implements CakeEventListener {
  * @return mixed name of controller if not loaded, or object if loaded
  */
 	protected function _getController($request, $response) {
+		// 派生クラス名を取得
 		$ctrlClass = $this->_loadController($request);
 		if (!$ctrlClass) {
 			return false;
@@ -232,6 +236,7 @@ class Dispatcher implements CakeEventListener {
 		if ($reflection->isAbstract() || $reflection->isInterface()) {
 			return false;
 		}
+		// 派生コントローラをインスタンス化する
 		return $reflection->newInstance($request, $response);
 	}
 
@@ -248,7 +253,10 @@ class Dispatcher implements CakeEventListener {
 			$pluginPath = $pluginName . '.';
 		}
 		if (!empty($request->params['controller'])) {
+
+			// var_dump("---------[LOAD_CONTROLLER]---------");
 			$controller = Inflector::camelize($request->params['controller']);
+			// var_dump($controller);
 		}
 		if ($pluginPath . $controller) {
 			$class = $controller . 'Controller';

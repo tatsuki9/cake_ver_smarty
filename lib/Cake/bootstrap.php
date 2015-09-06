@@ -94,6 +94,14 @@ if (!defined('TMP')) {
 }
 
 /**
+ * Path to the template files directory.
+ */
+
+if (!defined('TEMPLATE')) {
+	define('TEMPLATE', APP . 'template' . DS);
+}
+
+/**
  * Path to the logs directory.
  */
 if (!defined('LOGS')) {
@@ -113,6 +121,11 @@ if (!defined('CACHE')) {
 if (!defined('VENDORS')) {
 	define('VENDORS', ROOT . DS . 'vendors' . DS);
 }
+
+if (!defined('VENDOR')) {
+	define('VENDOR', ROOT . DS . APP_DIR . DS . 'Vendor' . DS);
+}
+
 
 /**
  * Web path to the public images directory.

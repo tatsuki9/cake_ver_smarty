@@ -31,8 +31,14 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
      * @throws SmartyException
      * @return string rendered template output
      */
+
+    // ここにリクエストされたtplファイルへのパスが渡される
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null, $display = false, $merge_tpl_vars = true, $no_output_filter = false)
     {
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] fetch_start");
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] template = ".$template);
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] parent below ");
+        // debug($parent);
         if ($template === null && $this instanceof $this->template_class) {
             $template = $this;
         }
@@ -41,20 +47,39 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
             $cache_id = null;
         }
         if ($parent === null && ($this instanceof Smarty || is_string($template))) {
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] parent set ");
+
             $parent = $this;
         }
         // create template object if necessary
         $_template = ($template instanceof $this->template_class)
             ? $template
             : $this->smarty->createTemplate($template, $cache_id, $compile_id, $parent, false);
+
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] _template");
+        // debug($_template->parent);
+        // debug("--------------------[template_fetch]----------------");
+        // Smarty_internal_template
+        // debug($_template);
+
         // if called by Smarty object make sure we use current caching status
         if ($this instanceof Smarty) {
+            // debug("[Smarty -> Smarty_Internal_Templatebase ] caching");
+            // debug($this->caching);
             $_template->caching = $this->caching;
         }
+
+        // debug("[Smarty -> Smarty_Internal_Templatebase ] merge_tpl_vars");
+        // debug($merge_tpl_vars);
+
         // merge all variable scopes into template
         if ($merge_tpl_vars) {
             // save local variables
             $save_tpl_vars = $_template->tpl_vars;
+
+            // debug("[Smarty -> Smarty_Internal_Templatebase ] tpl_vars ");
+            // debug($_template->tpl_vars);
+
             $save_config_vars = $_template->config_vars;
             $ptr_array = array($_template);
             $ptr = $_template;
@@ -116,6 +141,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
         $_template->smarty->merged_templates_func = array();
         // get rendered template
         // disable caching for evaluated code
+        // テンプレートを再生成するときは、キャッシュを無効にしないと再生成されないと思われる
         if ($_template->source->recompiled) {
             $_template->caching = false;
         }
@@ -128,15 +154,29 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
             }
             throw new SmartyException("Unable to load template {$_template->source->type} '{$_template->source->name}'{$parent_resource}");
         }
+
+
+        // debug("----------------[reconfirm_template_smarty_internal_templatebase]----------------------");
+        // debug($_template);
+
         // read from cache or render
         if (!($_template->caching == Smarty::CACHING_LIFETIME_CURRENT || $_template->caching == Smarty::CACHING_LIFETIME_SAVED) || !$_template->cached->valid) {
+
+
+            // debug("[Smarty -> Smarty_Internal_Templatebase ] read from cache or render ");
+
             // render template (not loaded and not in cache)
             if (!$_template->source->uncompiled) {
                 /** @var Smarty_Internal_Template $_smarty_tpl
                  * used in evaluated code
                  */
+
                 $_smarty_tpl = $_template;
+
+                // debug("-----------[check_recompiled]--------------");
+
                 if ($_template->source->recompiled) {
+                    // debug("---------------[recompile]------------");
                     $code = $_template->compiler->compileTemplate($_template);
                     if ($this->smarty->debugging) {
                         Smarty_Internal_Debug::start_render($_template);
@@ -151,18 +191,34 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                         throw $e;
                     }
                 } else {
+                    // debug("---------------[not_recompile]------------");
+
+
+                    // debug("---------------[confirm_key_compiled]-----------");
+                    // debug($_template->compiled);
+
+
                     if (!$_template->compiled->exists || ($_template->smarty->force_compile && !$_template->compiled->isCompiled)) {
+                        // debug("---------[is_force_compile]-----------------");
                         $_template->compileTemplateSource();
                         $code = file_get_contents($_template->compiled->filepath);
+
+                        // debug($code);
+
                         eval("?>" . $code);
                         unset($code);
                         $_template->compiled->loaded = true;
                         $_template->compiled->isCompiled = true;
                     }
                     if ($this->smarty->debugging) {
+                        // debug("---------[is_debug]-----------------");
+
                         Smarty_Internal_Debug::start_render($_template);
                     }
+                    // コンパイルしたtplファイルをまだ読み込んでない場合？
                     if (!$_template->compiled->loaded) {
+                        // debug("---------[compile_loaded]-----------------");
+
                         include($_template->compiled->filepath);
                         if ($_template->mustCompile) {
                             // recompile and load again
@@ -172,6 +228,8 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                             unset($code);
                             $_template->compiled->isCompiled = true;
                         }
+
+                        // tplファイルをコンパイルしたことを通知
                         $_template->compiled->loaded = true;
                     } else {
                         $_template->decodeProperties($_template->compiled->_properties, false);
@@ -185,6 +243,8 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                         //
                         // render compiled template
                         //
+                        // debug("----------------[render_compiled_template]-------------------");
+                        // debug($_template->properties['unifunc']);
                         $_template->properties['unifunc']($_template);
                         // any unclosed {capture} tags ?
                         if (isset($_template->_capture_stack[0][0])) {
@@ -198,6 +258,8 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                     }
                 }
             } else {
+
+                // debug("--------------[lets_compile]--------------");
                 if ($_template->source->uncompiled) {
                     if ($this->smarty->debugging) {
                         Smarty_Internal_Debug::start_render($_template);
@@ -275,7 +337,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                     Smarty_Internal_Debug::end_cache($_template);
                 }
             } else {
-                // var_dump('renderTemplate', $_template->has_nocache_code, $_template->template_resource, $_template->properties['nocache_hash'], $_template->parent->properties['nocache_hash'], $_output);
+                // debug('renderTemplate', $_template->has_nocache_code, $_template->template_resource, $_template->properties['nocache_hash'], $_template->parent->properties['nocache_hash'], $_output);
                 if (!empty($_template->properties['nocache_hash']) && !empty($_template->parent->properties['nocache_hash'])) {
                     // replace nocache_hash
                     $_output = str_replace("{$_template->properties['nocache_hash']}", $_template->parent->properties['nocache_hash'], $_output);
@@ -391,6 +453,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
         // display template
+        // parentはsmartyクラス
         $this->fetch($template, $cache_id, $compile_id, $parent, true);
     }
 

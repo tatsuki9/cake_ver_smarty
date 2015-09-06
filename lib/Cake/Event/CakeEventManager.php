@@ -145,7 +145,7 @@ class CakeEventManager {
  * Auxiliary function to extract and return a PHP callback type out of the callable definition
  * from the return value of the `implementedEvents` method on a CakeEventListener
  *
- * @param array $function the array taken from a handler definition for an event
+ * @param array $function the array taken from a handler definition for an event（コールバックを定義している関数からイベントのハンドル定義を取得する関数)
  * @param CakeEventListener $object The handler object
  * @return callback
  */
@@ -236,11 +236,12 @@ class CakeEventManager {
 		if (empty($this->_listeners[$event->name()])) {
 			return;
 		}
-
+		// debug($event->name());
 		foreach ($this->listeners($event->name()) as $listener) {
 			if ($event->isStopped()) {
 				break;
 			}
+
 			if ($listener['passParams'] === true) {
 				$result = call_user_func_array($listener['callable'], $event->data);
 			} else {

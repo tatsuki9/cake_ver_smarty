@@ -24,11 +24,20 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
+
+	/*
+		目的:特定アクセスの読み込むcontrollerの制御
+	*/
+
 	Router::connect('/', array('controller' => 'posts', 'action' => 'index', 'home'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
+	// API読み込み用
+	// Router::connect('/admin/api/twitter', array('controller' => 'twitter', 'action' => 'index'));
+	// Router::connect('/admin/api/facebook', array('controller' => 'facebook', 'action' => 'index'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

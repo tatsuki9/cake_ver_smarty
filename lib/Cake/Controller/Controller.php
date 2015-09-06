@@ -315,7 +315,9 @@ class Controller extends Object implements CakeEventListener {
  *  but expect that features that use the request parameters will not work.
  * @param CakeResponse $response Response object for this controller.
  */
+	// 親コントローラ
 	public function __construct($request = null, $response = null) {
+		// 派生コントローラ名を取得
 		if ($this->name === null) {
 			$this->name = substr(get_class($this), 0, -10);
 		}
@@ -324,8 +326,10 @@ class Controller extends Object implements CakeEventListener {
 			$this->viewPath = $this->name;
 		}
 
+		// 派生コントローラ名を整形してモデルクラス名を取得する
 		$this->modelClass = Inflector::singularize($this->name);
 		$this->modelKey = Inflector::underscore($this->modelClass);
+
 		$this->Components = new ComponentCollection();
 
 		$childMethods = get_class_methods($this);
@@ -938,6 +942,7 @@ class Controller extends Object implements CakeEventListener {
 			}
 		}
 
+		// viewオブジェクトを読み込む
 		$this->View = $this->_getViewObject();
 
 		$models = ClassRegistry::keys();
@@ -951,6 +956,7 @@ class Controller extends Object implements CakeEventListener {
 			}
 		}
 
+		// debug("[Controller render] view = ".$view);
 		$this->autoRender = false;
 		$this->response->body($this->View->render($view, $layout));
 		return $this->response;
@@ -1240,6 +1246,8 @@ class Controller extends Object implements CakeEventListener {
 			$viewClass = $viewClass . 'View';
 			App::uses($viewClass, $plugin . 'View');
 		}
+
+		// debug("[Controller] View_Object = ".$viewClass);
 		return new $viewClass($this);
 	}
 

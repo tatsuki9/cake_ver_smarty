@@ -22,8 +22,40 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+/*
+	目的：controllerのinclude範囲を広げる
+*/
+
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
+
+/*
+	Controller
+*/
+
+// 管理画面読み込み用
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Admin'.DS ),
+));
+// 管理画面-API読み込み用
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Admin'.DS.'Api'.DS ),
+));
+
+/*
+	View
+*/
+
+App::build(array(
+	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Admin'.DS.'Api'.DS),
+));
+
+// パッケージにLogicディレクトリを新規追加
+App::build(array(
+	'Logic' => array( ROOT.DS.APP_DIR.DS.'Logic'.DS ),
+	),
+	'register'
+);
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.

@@ -274,6 +274,10 @@ abstract class Smarty_Internal_TemplateCompilerBase
                 $this->abort_and_recompile = false;
                 // get template source
                 $_content = $this->template->source->content;
+
+                // debug("[content]");
+                // debug($this->template->source->content);
+
                 if ($_content != '') {
                     // run prefilter if required
                     if ((isset($this->smarty->autoload_filters['pre']) || isset($this->smarty->registered_filters['pre'])) && !$this->suppressFilter) {
@@ -281,6 +285,9 @@ abstract class Smarty_Internal_TemplateCompilerBase
                     }
                     // call compiler
                     $_compiled_code = $this->doCompile($_content);
+
+                    // debug("[compiled_code]");
+                    // debug($this->template->source->content);
                 }
             } while ($this->abort_and_recompile);
             if ($this->smarty->debugging) {
@@ -306,10 +313,33 @@ abstract class Smarty_Internal_TemplateCompilerBase
             $_compiled_code = Smarty_Internal_Filter_Handler::runFilter('post', $_compiled_code, $template);
         }
         if ($this->suppressTemplatePropertyHeader) {
+            // var_dump("------compile_part_1-----------");
             $code = $_compiled_code . $merged_code;
         } else {
+            // ini_set('xdebug.var_display_max_children', -1);
+            // ini_set('xdebug.var_display_max_data', -1);
+            // ini_set('xdebug.var_display_max_depth', -1);
+
+            // var_dump("------compile_part_2-----------");
+            // var_dump("----------[heder_code]--------");
+            // var_dump($template_header);
+
+            // var_dump("----------[middle_code_first]-------------------");
+            // var_dump($_compiled_code);
+            // var_dump("-----------[middle_code_complete]---------------");
+            // var_dump($template->createTemplateCodeFrame($_compiled_code));
+            // var_dump("--------------[footer_code]-------------------");
+            // var_dump($merged_code);
+
+            ini_set('xdebug.var_display_max_children', 0);
+            ini_set('xdebug.var_display_max_data', 0);
+            ini_set('xdebug.var_display_max_depth', 0);
+
             $code = $template_header . $template->createTemplateCodeFrame($_compiled_code) . $merged_code;
         }
+
+        // var_dump("-------------[compile_code]----------------");
+        // var_dump($code);
         // unset content because template inheritance could have replace source with parent code
         unset ($template->source->content);
 
@@ -331,6 +361,9 @@ abstract class Smarty_Internal_TemplateCompilerBase
      */
     public function compileTag($tag, $args, $parameter = array())
     {
+        // var_dump("----------------[conpileTag]----------------------");
+        // var_dump(debug_backtrace());
+
         // $args contains the attributes parsed and compiled by the lexer/parser
         // assume that tag does compile into code, but creates no HTML output
         $this->has_code = true;
@@ -620,6 +653,9 @@ abstract class Smarty_Internal_TemplateCompilerBase
         // loop through plugin dirs and find the plugin
         $function = 'smarty_' . $plugin_type . '_' . $plugin_name;
         $file = $this->smarty->loadPlugin($function, false);
+
+        // var_dump("---------------------[plugin_file_name]----------------");
+        // var_dump($file);
 
         if (is_string($file)) {
             if ($this->template->caching && ($this->nocache || $this->tag_nocache)) {

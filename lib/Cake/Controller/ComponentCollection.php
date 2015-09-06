@@ -122,7 +122,7 @@ class ComponentCollection extends ObjectCollection implements CakeEventListener 
 	}
 
 /**
- * Returns the implemented events that will get routed to the trigger function
+ * Returns the implemented events that will get routed to the trigger function(トリガーメソッドへの導線を得るイベントを返す)
  * in order to dispatch them separately on each component
  *
  * @return array

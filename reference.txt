@@ -1,0 +1,86 @@
+■　webroot/index.phpを読み込む
+・Cake/bootstrap.phpを読み込む
+　■ Cake/App.phpを読み込む
+・Cake/lib/Routing/Dispatcherを読み込む
+・dispatch呼び出し
+■　url解釈で要求されているコントローラ名取得
+■　派生コントローラ名から派生コントローラの親コントローラをコンストラクトする
+各プロパティに
+　・派生コントローラ名,モデル名・・・などset
+
+■　親コントローラ(coreファイル)のレンダリング機能を使う
+
+↓↓↓↓↓↓↓↓↓↓↓↓呼び出し
+
+■　派生view(smartyView)をコンストラクトする
+	　■　親viewをコンストラクトする
+		・各プロパティに
+		  親view
+		  ・passedVarsの各プロパティに派生コントローラのプロパティ値をセット
+
+
+・app/Vendor/smarty/smarty.class.phpをincludeする(class Smarty)
+・親viewのプロパティextに".tpl"セット
+・ class smarty のプロパティemplatedir,compiledir,pluginsdir,cachedir,configdirに各ディレクトリパスをセット
+
+
+
+■　viewのレンダリング機能を使う
+・リクエストされたtplファイルのファイルパスを取得する(getViewFileName)
+
+■ viewを継承した派生view(smartyView)のレンダリング機能を使う
+
+・smarty.class.php(class Smarty){以下、smartyクラスと呼ぶことにする}の
+表示関数($Smarty->diplay(リクエストされたtplファイルのファイルパス名))
+を呼ぶ
+ー＞smarty.class.phpの親smarty_internal_templatebase.phpのdisplay関数
+
+
+
+以下,smarty仕様
+fetch(internal_template_base)
+コンパイルしてなかったら
+■　compileTemplateSourceメソッド呼ぶ
+　↓
+	■　compileTemplateSource(smarty_internal_template)
+	/*
+	@params
+		コンパイル準備
+	*/
+
+	・compileTemplateメソッド呼ぶ
+		↓
+		■　compileTemplate(smarty_internal_templatecompilerbase)
+		/*
+		@params
+			コンパイルするファイルの中の内容を構築していく
+		*/
+		・createTemplateCodeFrameメソッド呼ぶ
+			↓
+			■　createTemplateCodeFrame(smarty_internal_template)
+			/*
+			@params
+				プラグインファイルをrequireしたり、ファイル名を取得したりする
+			*/
+			・required_pluginsプロパティからファイル名取得して、コンパイルするファイルに埋め込む内容の一部とする。
+			(required_pluginsはgetPlugin(smarty_internal_templatecompilerbase)メソッドでセットされる。
+			getPluginメソッド内ではsmartyクラスに対して、loadPluginメソッドを呼んでいる)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

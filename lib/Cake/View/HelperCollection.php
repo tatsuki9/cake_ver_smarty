@@ -195,6 +195,7 @@ class HelperCollection extends ObjectCollection implements CakeEventListener {
  * @throws CakeException when modParams is used with an index that does not exist.
  */
 	public function trigger($callback, $params = array(), $options = array()) {
+		// debug("triger");
 		if ($callback instanceof CakeEvent) {
 			$callback->omitSubject = true;
 		}

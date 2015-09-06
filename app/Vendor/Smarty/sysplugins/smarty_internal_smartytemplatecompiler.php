@@ -92,6 +92,13 @@ class Smarty_Internal_SmartyTemplateCompiler extends Smarty_Internal_TemplateCom
           tags in the templates are replaces with PHP code,
           then written to compiled files. */
         // init the lexer/parser to compile the template
+
+          // debug("[doCompile] parser");
+          // debug($this->parser_class);
+
+          // debug("[doCompile] lexer_class");
+          // debug($this->lexer_class);
+
         $this->lex = new $this->lexer_class($_content, $this);
         $this->parser = new $this->parser_class($this->lex, $this);
         if ($this->inheritance_child) {
@@ -135,6 +142,7 @@ class Smarty_Internal_SmartyTemplateCompiler extends Smarty_Internal_TemplateCom
         }
         // return compiled code
         // return str_replace(array("? >\n<?php","? ><?php"), array('',''), $this->parser->retvalue);
+
         return $this->parser->retvalue;
     }
 }
