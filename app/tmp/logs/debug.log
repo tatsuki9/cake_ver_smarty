@@ -1,0 +1,270 @@
+2015-05-17 14:12:33 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 14:12:33 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 14:17:22 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 14:17:22 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:19 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:19 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:26 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:26 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:41 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:24:41 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:26:32 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 15:26:32 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 112
+
+2015-05-17 17:16:46 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:16:46 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:16:52 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:16:52 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:18:19 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:18:19 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:19:55 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:19:55 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:19:57 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:19:57 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:30:44 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 14]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:30:44 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:11 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:11 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 16]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 16
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:42 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:42 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 16]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 16
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:45 Notice: Notice (8): Undefined index: login_id in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 15]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 15
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
+2015-05-17 17:33:45 Notice: Notice (8): Undefined index: message in [/Applications/MAMP/htdocs/repos/app/Controller/Admin/AdminsController.php, line 16]
+Trace:
+AdminsController::index() - APP/Controller/Admin/AdminsController.php, line 16
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 494
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 108
+
