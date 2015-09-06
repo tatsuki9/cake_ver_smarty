@@ -22,7 +22,7 @@ CLASS SmartyView extends View {
         }
 
         // app/Vendor/Smarty/Smarty/smarty.CLASS.phpのSmarty.phpをロード
-        if(!App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.CLASS.php')))
+        if(!App::import('Vendor', 'Smarty', array('file' => 'Smarty'.DS.'Smarty.class.php')))
             die('error Loading Smarty CLASS');
         /*
             @params
