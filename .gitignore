@@ -3,12 +3,12 @@
 #/app/Config/database.php
 /app/tmp
 /app/View/SmartyView.php
-#/lib/Cake/Console/Templates/skel/tmp/
-#/plugins
-#/vendors
-#/build
-#/dist
-#/tags
+/lib/Cake/Console/Templates/skel/tmp/
+/plugins
+/vendors
+/build
+/dist
+/tags
 
 # OS generated files #
 ######################
