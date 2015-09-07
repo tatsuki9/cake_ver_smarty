@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+/* 
+    ヘッダー
+*/
+table {
+    height: 24px;
+    font: normal 10pt verdana, arial, helvetica;
+}
+
+table {
+    border-spacing: 0;
+}
+
+ul#menu-0 {
+    z-index: 0;
+    margin: 0;
+    padding: 0px;
+    list-style: none;
+    background: white;
+    width: 100%;
+    height: 24px;
+    font: normal 10pt verdana, arial, helvetica;
+    font-weight: bold;
+}
+
+ul#menu-0 li {
+    float: left;
+    margin: 0;
+    padding: 0px;
+    display: block;
+    position: relative;
+    width: auto;
+    border: 0px solid #000;
+}
+
+a, a:visited, a:link {
+    text-decoration: none;
+    color: azure;
+}
+
+ul#menu-0 li a:link, ul#menu-0 li a:visited {
+    float: left;
+    padding: 4px 10px;
+    text-decoration: none;
+    color: black;
+    background: white;
+    width: auto;
+    display: block;
+}
+
+/* 
+    メインコンテンツ
+*/
+
+#contents {
+    width: 950px;
+    margin: 0 auto; /* ブロック要素のセンタリング */
+    padding: 20px 5px;
+    overflow: hidden; /* はみ出た分の表示の方法 */
+}
+
+/*
+    コンテンツ1
+*/
+.bnr-area {
+    clear: both;/* プロパティfloatによる回り込み解除 */
+    background: #fff;
+    box-shadow: 1px 1px 1px #666; /* 影を付ける */
+    -webkit-box-shadow: 1px 1px 1px #666; /* safari chrome用 */
+    width: 948px;
+}
+
+/* テーブル1 */
+.bnr-area ul {
+    display: table; /*　ブロック要素にテーブル宣言的な感じ.インライン要素にdisplay: table-cellと宣言すれば、きれいなカラムのテーブルができる */
+}
+
+/* テーブル１-カラム１*/
+.bnr-area li {
+    display: table-cell;
+    vertical-align: top; /* 行のなかのテキスト、画像などの縦方向のそろえ位置を指す。よくわからんので、調べた方がええで */
+    padding: 19px 15px; /* 領域内のスペース. marginとセットで覚えるのが吉 marginは領域間のスペース */
+    /* background: url('../img/fig_index_01.jpg') no-repeat right center; */ /* 背景指定、繰り返し指定,表示位置指定 */
+    font size: 97%;
+    letter-spacing: 1px; /* 文字の間隔 */
+}
+
+/* テーブル2 */
+.bnr-area li .col {
+    display: table;
+}
+
+
+/* テーブル2-カラム1 */
+.bnr-area li .col .image {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+    /*background: url('../img/fig_index_01.jpg') no-repeat right center;*/
+}
+
+.bnr-area li.last {
+    background: none;
+}
+
+.pt25 {
+    padding-top: 25px!important;
+}
+
+/*
+    コンテンツ2(サインアップ画面)
+*/
+
+.form-signup-home {
+    width: 320px;
+    margin-left: 40px;
+}
+
+.form-signup-home dl.form {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.form-signup-home dl.form input[type="text"], .form-signup-home dl.form input[type="password"] {
+    width: 100%;
+    margin-right: 0;
+    border-color: #fff;
+}
+
+/* form button */
+.form-signup-home .btn {
+    border: 0;
+}
+.form-signup-home .btn, .form-signup-home dl.form input[type="text"], .form-signup-home dl.form input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.btn-primary {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    background-color: #60b044;
+    background-image: -webkit-linear-gradient(#8add6d, #60b044);
+    background-image: linear-gradient(#8add6d, #60b044);
+    border-color: #5ca941;
+}
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+    background-image: linear-gradient(#fcfcfc, #eee);
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+}
+
+.bnr-area .marketing-section-signup {
+    text-shadow: 0 1px 3px #222;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+dd {
+    margin-left: 0;
+}
+
+
+/*
+    ニューストピック
+*/
+.newstopics {
+    box-shadow: 1px 1px 1px #666;
+    -webkit-box-shadow: 1px 1px 1px #666;/* safari chrome用*/
+    padding: 1px;
+    background: #fff;
+    width: 950px;
+    margin-bottom: 10px;
+}
+
+.newstopics ul {
+    padding: 10px 15px 0;
+}
+
+.newstopics li {
+    border-bottom: 1px dashed #d0d0d0;
+    padding: 8px 15px 8px 0;
+}
+
+.newstopics dl dt {
+    float: left;
+    color: #606060;
+    font-size: 10px;
+    width: 132px;
+}
+
+.newstopics dl dt .date {
+    float: left;
+    vertical-align: top;
+    /*width: 66px;*/
+    word-break: break-all;
+}
+
+.newstopics dl dt .category {
+    vertical-align: top;
+    padding: 0 10px;
+    float: left;
+    width: 36px;
+}
+
+.box {
+    width: 100px;
+    line-height: 100px;
+    background: #bbb;
+    text-align: center;
+}
+
+.relative {
+    position: relative;
+    top: 100px;
+    left: 100px;
+    width: 500px;
+    line-height: 50px;
+    background: #f8b862;
+    text-align: center:;
+}

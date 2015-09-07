@@ -33,22 +33,59 @@ Cache::config('default', array('engine' => 'File'));
 	Controller
 */
 
-// 管理画面読み込み用
+
+// --------------------------------管理画面--------------------------------------------
+// ログイン
 App::build(array(
 	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Admin'.DS ),
 ));
-// 管理画面-API読み込み用
+// API
 App::build(array(
 	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Admin'.DS.'Api'.DS ),
 ));
 
+// --------------------------------本番画面--------------------------------------------
+// ログイン
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Public'.DS.'Login'.DS ),
+));
+// マイページ
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Public'.DS.'Mypage'.DS ),
+));
+// 写真
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Public'.DS.'Pictures'.DS ),
+));
+
+
+
 /*
 	View
 */
-
+// --------------------------------管理画面--------------------------------------------
+// API
 App::build(array(
 	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Admin'.DS.'Api'.DS),
 ));
+
+// --------------------------------本番画面--------------------------------------------
+// ログイン
+App::build(array(
+	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Public'.DS.'Login'.DS),
+));
+// マイページ
+App::build(array(
+	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Public'.DS.'Mypage'.DS),
+));
+// 写真
+App::build(array(
+	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Public'.DS.'Pictures'.DS),
+));
+
+
+
+
 
 // パッケージにLogicディレクトリを新規追加
 App::build(array(

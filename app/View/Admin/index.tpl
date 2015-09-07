@@ -4,7 +4,7 @@
 	<p>ログインページ　サンプル<p>
 	{$message}
 	<div style="width: 230px; margin: 0px auto;">
-		<form method="get" action="/repos/admin/">
+		<form method="get" action="/cake_ver_smarty/admin/">
 			<div>ログインID</div>
 			<input type="text" name="login_id" id="login_id" />
 			<div>パスワード</div>		
