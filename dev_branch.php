@@ -9,7 +9,6 @@
 $lottery_id=10;
 
 if($lottery_id==10
-&&$lottery_id==11
 &&$lottery_id==11)
 {
 
