@@ -57,7 +57,10 @@ App::build(array(
 App::build(array(
 	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Public'.DS.'Pictures'.DS ),
 ));
-
+// 単語帳
+App::build(array(
+	'Controller' => array( ROOT.DS.APP_DIR.DS.'Controller'.DS.'Public'.DS.'Words'.DS ),
+));
 
 
 /*
@@ -82,7 +85,10 @@ App::build(array(
 App::build(array(
 	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Public'.DS.'Pictures'.DS),
 ));
-
+// 単語帳
+App::build(array(
+	'views' => array( ROOT.DS.APP_DIR.DS.'View'.DS.'Public'.DS.'Words'.DS),
+));
 
 
 
