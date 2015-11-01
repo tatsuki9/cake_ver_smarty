@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+ul.thumnail {
+    list-style-type: none;
+}
+ul.thumnail li {
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+ul.thumnail li img {
+    border: 2px solid #bbb;
+}

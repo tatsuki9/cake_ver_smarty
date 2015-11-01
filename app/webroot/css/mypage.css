@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+
+#menu {
+    background-size: 100%;
+    padding:0;
+    margin:0;
+    list-style-type:none; /* リストの先頭に表示するマーカーの種類*/
+}
+
+#menu li{
+    width:20%;
+    float:left; /* 左回り込み　*/
+    padding:0;
+    margin:0;
+    text-align:center;
+}
+
+#menu li a{
+    color:#fff; /* 白(テキスト色) */
+    font-size:12px;
+    padding:10px 0;
+    text-decoration:none; /* テキストに下線・上線・打ち消し線などの表示指定*/
+    display:block; /* ブロック要素(要素の前後に改行あり) */
+    background:#666; /* グレー */
+}
+
+#menu li a:hover{
+    background:#555;
+}
