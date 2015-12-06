@@ -89,8 +89,6 @@
             // 問題を開始し、回答にチェックしたか
             if(this.question_start && this._checkAnswered(ans_results)) {
                 this._openItem($(this.$items[0]));
-            } else {
-                console.log("問題開始及び回答してください")
             }
         },
         // $item : 一意のDOM要素
@@ -118,7 +116,6 @@
 
             // スタートボタン押したかどうか
             if(!this.question_start) {
-                console.log("問題開始");
                 // 問題回答候補テキスト更新
                 this._viewCandicate();
                 // 回答数更新
@@ -155,10 +152,8 @@
 
         },
         _setCurrent : function( $el ) {
-            console.log("[_setCurrent] start");
             // 現在選択しているDOMを更新
             this.current = $el ? $el.index() : -1;
-            console.log("[_setCurrent]現在選択したDOMは " + this.current);
             this.$items.removeClass( 'ff-active' );
             if( $el ) {
                 $el.addClass( 'ff-active' );
