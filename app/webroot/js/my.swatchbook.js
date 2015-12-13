@@ -11,15 +11,13 @@
 (function($, window) {
 
     // 関数API
-    $.SwatchBook = function( options, data, candicates, questionframe_ele, element ) {
+    $.SwatchBook = function( options, data, candicates, element ) {
         // sb-containerのDOM要素取得
         this.$el  = $( element );
         // 単語帳データ取得
         this.data = JSON.parse(data);
         // 問題回答候補
         this.candicates = candicates;
-
-        this.$questionframe_ele = $(questionframe_ele);
 
         this._init( options );
     };
@@ -39,6 +37,9 @@
 
         $.SwatchBook.prototype = {
         _init : function( options ) {
+
+            // 結果
+            this.result = 0;
             // 配列をマージ(デフォルト値とオリジナル値)
             this.options    = $.extend( true, {}, $.SwatchBook.defaults, options);
             // 指定セレクタの全子要素を抽出
@@ -82,17 +83,58 @@
             }
             return false;
         },
+        _getAnswer : function(ans_results) {
+            // 回答済みチェック
+            if( this._checkAnswered(ans_results) ) {
+                for(var i = 0; i < ans_results.length; i++) {
+                    if( ans_results[i] ) {
+                        // 回答候補取得
+                        $candicates_text = this._parseText(this.data[this.ans_num]['candicates']);
+
+                        return $candicates_text[i];
+                    }
+                }
+            }
+
+            return undefined;
+        },
         _setTransition : function() {
             this.$items.css( { 'transition' : 'all ' + this.options.speed + 'ms ' + this.options.easing } );
         },
         _progress : function(ans_results) {
             // 問題を開始し、回答にチェックしたか
             if(this.question_start && this._checkAnswered(ans_results)) {
-                this._openItem($(this.$items[0]));
+                this._openItem($(this.$items[0]), ans_results);
             }
         },
         // $item : 一意のDOM要素
-        _openItem : function( $item ) {
+        _openItem : function( $item, ans_results ) {
+            // スタートボタン押したかどうか
+            if(!this.question_start) {
+                // 問題回答候補テキスト更新
+                this._viewCandicate();
+                // 問題枠表示
+                $(window.document.getElementById("question_frame")).css( {'visibility' : 'visible'} );
+                // イベントハンドラ解除
+                $(this.$items).unbind();
+                this.question_start = true;
+            } else {
+                this._judge( ans_results );
+
+                // 回答数更新
+                this.ans_num++;
+
+                if(this.data.length == this.ans_num) {
+                    $(window.document.getElementById('to_result')).css({
+                        'display' : 'block'
+                    });
+                    return;
+                }
+
+                // 問題回答候補テキスト更新
+                this._viewCandicate();
+            }
+
             // 子要素生成
             var $child_01 = $("<span/>").addClass("sb-icon icon-flight");
             var $child_02 = $("<h4/>").append($("<span/>").text(this.data[this.ans_num]['word']));
@@ -109,36 +151,50 @@
 
             // クリックイベントとtransition更新
             this.$items = this.$el.children( 'div' );
+
+            // transition設定
             this._setTransition();
 
             // タッチした要素を回転させる
             this._rotateSiblings( $item );
 
-            // スタートボタン押したかどうか
-            if(!this.question_start) {
-                // 問題回答候補テキスト更新
-                this._viewCandicate();
-                // 回答数更新
-                this.ans_num++;
-                // 問題枠表示
-                this.$questionframe_ele.css( {'visibility' : 'visible'} );
-                // イベントハンドラ解除
-                $(this.$items).unbind();
-                this.question_start = true;
-                return;
-            } else {
-                // 問題回答候補テキスト更新
-                this._viewCandicate();
-                // 回答数更新
-                this.ans_num++;
-            }
         },
         _viewCandicate : function() {
-            $candicates_text = this.data[this.ans_num]['candicates'].split(',');
+            $candicates_text = this._parseText(this.data[this.ans_num]['candicates']);
 
             for(var i = 0; i < this.candicates.length; i++) {
                 this.candicates[i].innerHTML = $candicates_text[i];
             }
+        },
+        _judge : function(ans_results) {
+            // 正解取得
+            $answer = this.data[this.ans_num]['answer'];
+
+            // ユーザーの回答取得
+            $user_answer = this._getAnswer(ans_results);
+
+            // 初期化
+            $ans = $(window.document.getElementsByClassName('ans_result'));
+            $ans.css({
+                'display' : 'none'
+            });
+
+            if($answer === $user_answer) {
+
+                this.result++;
+
+                $ans_status = $(window.document.getElementById('correct'));
+                $ans_status.show();
+
+            } else {
+                $ans_status = $(window.document.getElementById('mistake'));
+                $ans_status.show();
+            }
+        },
+        _parseText : function(texts) {
+            $arr = texts.split(',');
+
+            return $arr;
         },
         _openclose : function() {
             // 選択したDOMが
@@ -177,14 +233,15 @@
     };
 
     // {{{ メソッドAPI
-    $.fn.swatchbook = function( options, data, ans_results, candicates,init, submit_ele, questionframe_ele ) {
+    $.fn.swatchbook = function( options, data, ans_results, candicates,init) {
+
         // submit要素にヒモづいているswatchbookというキーのデータ取得
-        var instance = $.data( submit_ele, 'swatchbook' );
+        var instance = $.data( window.document.getElementById("submit"), 'swatchbook' );
 
         if(init) {
             try {
                 // submit要素にヒモづいているswatchbookというキーにデータ格納
-                instance = $.data( submit_ele, 'swatchbook', new $.SwatchBook( options, data, candicates, questionframe_ele, this ) );
+                instance = $.data( window.document.getElementById("submit"), 'swatchbook', new $.SwatchBook( options, data, candicates, this ) );
 
             } catch(e) {
                 throw new("Swatchbookオブジェクトが生成できませんでした.");
