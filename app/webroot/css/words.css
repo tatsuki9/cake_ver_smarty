@@ -1,27 +1,101 @@
 @charset "utf-8";
 
+/* 問題枠 */
+.question_frame {
+	margin: 30px auto 0 auto;
+	width: 500px;
+	border: medium solid #ff00ff;
+	visibility: hidden;
+	overflow: auto;
+}
+/* 回答ボタン */
+.submit {
+	margin: 0px 0px 10px 0px;
+}
+/* 正解か不正解か */
+.ans_result {
+	text-align: center;
+	margin: 10px auto 0px auto;
+	width: 150px;
+	height: 50px;
+	display: none;
+}
+/* 結果画面へ */
+.to_result {
+	position: relative;
+	display: none;
+	widht: 100px;
+	height: 50px;
+}
+/* sb-containerの中のdiv要素の位置を固定させるために、sb-containerという箱を用意する */
 .sb-container {
 	position: relative;
-	width: 150px;
-	height: 400px;
+	width: 400px;
+	height: 260px;
+	/* topから30px 左からマージンオート bottomから0px 右からマージンオート */
 	margin: 30px auto 0 auto;
 }
-
-	.sb-container div {
+/* div基本設定 */
+.sb-container div {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 130px;
-	height: 400px;
+	width: 400px;
+	height: 150px;
 	background: #fff;
-	border-radius: 5px;　/* 角の形 */
+	border-radius: 5px;
 	cursor: pointer;
 	text-align: center;
 	background-image: url("../img/fabric.png");
 	transform-origin: 25% 90%;
 	backface-visibility: hidden;
-}
 
+	-webkit-transform-origin: 25% 90%;
+	-moz-transform-origin: 25% 90%;
+	-o-transform-origin: 25% 90%;
+	-ms-transform-origin: 25% 90%;
+	transform-origin: 25% 90%;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+/* div拡張設定 */
+/* 子要素1 */
+.sb-container div:nth-child(1){
+	background-color: #ea2a29;
+	box-shadow: -1px -1px 3px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);
+}
+/* 子要素2 */
+.sb-container div:nth-child(2){
+	background-color: #f16729;
+	box-shadow: -1px -1px 3px rgba(0,0,0,0.1), 2px 2px 1px rgba(0,0,0,0.1);
+}
+/* 子要素最後 */
+.sb-container div:last-child{
+	background: #645b5c url("../img/cover.jpg") repeat center center;
+	box-shadow:
+	-1px -1px 3px rgba(0,0,0,0.2),
+	12px 12px 20px rgba(0,0,0,0.6),
+	inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+}
+.sb-container div:last-child:after{
+	content: '';
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #dddddd;
+	background: linear-gradient(135deg, #dddddd 0%,#58535e 48%,#889396 100%);
+	box-shadow: -1px -1px 1px rgba(0,0,0,0.5), 1px 1px 1px rgba(255,255,255,0.1);
+}
 .sb-container div h4{
 	color: rgba(255,255,255,0.9);
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
@@ -55,34 +129,6 @@
 	transform: rotate(-90deg) translateX(-157%) translateY(73px);
 	transform-origin: 0 0;
 	user-select: none;
-}
-
-.sb-container div:nth-child(1){
-	background-color: #ea2a29;
-	box-shadow: -1px -1px 3px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);
-}
-.sb-container div:nth-child(2){
-	background-color: #f16729;
-	box-shadow: -1px -1px 3px rgba(0,0,0,0.1), 2px 2px 1px rgba(0,0,0,0.1);
-}
-.sb-container div:last-child{
-	background: #645b5c url("../img/cover.jpg") repeat center center;
-	box-shadow: 
-		-1px -1px 3px rgba(0,0,0,0.2),
-		12px 12px 20px rgba(0,0,0,0.6),
-		inset 2px 2px 0 rgba(255, 255, 255, 0.1);
-}
-.sb-container div:last-child:after{
-	content: '';
-	position: absolute;
-	bottom: 15px;
-	left: 15px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #dddddd;
-	background: linear-gradient(135deg, #dddddd 0%,#58535e 48%,#889396 100%);
-	box-shadow: -1px -1px 1px rgba(0,0,0,0.5), 1px 1px 1px rgba(255,255,255,0.1);
 }
 
 span.sb-icon{
