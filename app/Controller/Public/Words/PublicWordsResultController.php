@@ -9,10 +9,6 @@ class PublicWordsResultController extends AppController{
 
     public function index()
     {
-        var_dump($this->request->query);
-        var_dump($this->request->data);
-        var_dump("hgoehgoe");
-
         return NULL;
     }
 }
