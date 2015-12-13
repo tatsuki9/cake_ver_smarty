@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 問題枠 */
-.qustion_frame {
+.question_frame {
 	margin: 30px auto 0 auto;
 	width: 500px;
 	border: medium solid #ff00ff;
@@ -10,9 +10,23 @@
 }
 /* 回答ボタン */
 .submit {
-	margin: 0px 0px 10px 0px
+	margin: 0px 0px 10px 0px;
 }
-
+/* 正解か不正解か */
+.ans_result {
+	text-align: center;
+	margin: 10px auto 0px auto;
+	width: 150px;
+	height: 50px;
+	display: none;
+}
+/* 結果画面へ */
+.to_result {
+	position: relative;
+	display: none;
+	widht: 100px;
+	height: 50px;
+}
 /* sb-containerの中のdiv要素の位置を固定させるために、sb-containerという箱を用意する */
 .sb-container {
 	position: relative;
